@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "io.grayray75.fabric.norecipebook.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "TexturedButtonWidgetMixin"
+    ],
+    "client": [
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
