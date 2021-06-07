@@ -20,13 +20,6 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-    modApi("me.shedaniel.cloth.api:cloth-client-events-v0:${project.cloth_client_events_version}") {
-        transitive(false)
-    }
-    include("me.shedaniel.cloth.api:cloth-client-events-v0:${project.cloth_client_events_version}") {
-        transitive(false)
-    }
 }
 
 processResources {

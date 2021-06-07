@@ -4,9 +4,10 @@
     "package": "io.grayray75.fabric.norecipebook.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-        "TexturedButtonWidgetMixin"
     ],
     "client": [
+        "TexturedButtonWidgetMixin",
+        "ScreenMixin"
     ],
     "injectors": {
         "defaultRequire": 1
