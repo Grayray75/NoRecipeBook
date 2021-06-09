@@ -20,9 +20,9 @@ public abstract class MinecraftClientMixin {
             RecipeBookWidget widget = ((RecipeBookProvider) screen).getRecipeBookWidget();
             HandledScreenMixin handledScreen = ((HandledScreenMixin) screen);
             if (widget.isOpen()) {
-                widget.reset(false);
+                widget.reset();
                 widget.toggleOpen();
-                handledScreen.setX(widget.findLeftEdge(false, screen.width, handledScreen.getBackgroundWidth()));
+                handledScreen.setX(widget.findLeftEdge(screen.width, handledScreen.getBackgroundWidth()));
             }
         }
     }
