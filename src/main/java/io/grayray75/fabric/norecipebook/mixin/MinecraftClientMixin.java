@@ -2,7 +2,7 @@ package io.grayray75.fabric.norecipebook.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.gui.screen.ingame.ContainerScreen;
 import net.minecraft.client.gui.screen.recipebook.RecipeBookProvider;
 import net.minecraft.client.gui.screen.recipebook.RecipeBookWidget;
 import org.jetbrains.annotations.Nullable;
@@ -16,9 +16,9 @@ public abstract class MinecraftClientMixin {
 
     @Inject(method = "openScreen", at = @At("TAIL"))
     public void openScreen(@Nullable Screen screen, CallbackInfo ci) {
-        if (screen instanceof RecipeBookProvider && screen instanceof HandledScreen) {
+        if (screen instanceof RecipeBookProvider && screen instanceof ContainerScreen) {
             RecipeBookWidget widget = ((RecipeBookProvider) screen).getRecipeBookWidget();
-            HandledScreenMixin handledScreen = ((HandledScreenMixin) screen);
+            ContainerScreenMixin handledScreen = ((ContainerScreenMixin) screen);
             if (widget.isOpen()) {
                 widget.reset(false);
                 widget.toggleOpen();
