@@ -93,7 +93,7 @@ task publishModrinth(type: com.modrinth.minotaur.TaskModrinthUpload) {
 
     token = ENV.MODRINTH_TOKEN
     projectId = 'TvL1V8O5'
-    versionNumber = "${project.mod_version}+${project.minecraft_version}"
+    versionNumber = "${project.mod_version}+${getShortMcVersion()}"
     versionName = "[${getShortMcVersion()}] NoRecipeBook v${project.mod_version}"
     versionType = "RELEASE"
 
