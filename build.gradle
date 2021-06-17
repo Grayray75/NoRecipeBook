@@ -1,5 +1,7 @@
 plugins {
     id 'fabric-loom' version '0.8-SNAPSHOT'
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
+    id "com.modrinth.minotaur" version "1.2.1"
     id 'maven-publish'
 }
 
@@ -75,5 +77,53 @@ publishing {
     repositories {
         // uncomment to publish to the local maven
         // mavenLocal()
+    }
+}
+
+def ENV = System.getenv()
+
+def getShortMcVersion() {
+    return project.minecraft_version.substring(0, 4)
+}
+
+task publishModrinth(type: com.modrinth.minotaur.TaskModrinthUpload) {
+    onlyIf {
+        ENV.MODRINTH_TOKEN
+    }
+
+    token = ENV.MODRINTH_TOKEN
+    projectId = 'TvL1V8O5'
+    versionNumber = "${project.mod_version}+${project.minecraft_version}"
+    versionName = "[${getShortMcVersion()}] NoRecipeBook v${project.mod_version}"
+    versionType = "RELEASE"
+
+    uploadFile = remapJar
+    addGameVersion("${project.minecraft_version}")
+    addLoader('fabric')
+}
+
+curseforge {
+    if (ENV.CURSEFORGE_TOKEN) {
+        apiKey = ENV.CURSEFORGE_TOKEN
+    }
+
+    project {
+        id = "491407"
+        changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/commits/"
+        releaseType = "release"
+        addGameVersion "${project.minecraft_version}"
+        addGameVersion "Fabric"
+
+        mainArtifact(remapJar) {
+            displayName = "[${getShortMcVersion()}] NoRecipeBook v${project.mod_version}"
+        }
+
+        afterEvaluate {
+            uploadTask.dependsOn("remapJar")
+        }
+    }
+
+    options {
+        forgeGradleIntegration = false
     }
 }
