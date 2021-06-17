@@ -1,16 +1,18 @@
 {
-    "required": true,
-    "minVersion": "0.8",
-    "package": "io.grayray75.fabric.norecipebook.mixin",
-    "compatibilityLevel": "JAVA_8",
-    "mixins": [],
-    "client": [
-        "HandledScreenMixin",
-        "MinecraftClientMixin",
-        "ScreenMixin",
-        "TexturedButtonWidgetMixin"
-    ],
-    "injectors": {
-        "defaultRequire": 1
-    }
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.grayray75.fabric.norecipebook.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "HandledScreenMixin",
+    "MinecraftClientMixin",
+    "RecipeBookWidgetMixin",
+    "ScreenMixin",
+    "TexturedButtonWidgetMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
