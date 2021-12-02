@@ -6,11 +6,11 @@
   "mixins": [
   ],
   "client": [
-    "HandledScreenMixin",
-    "MinecraftClientMixin",
-    "RecipeBookWidgetMixin",
-    "ScreenMixin",
-    "TexturedButtonWidgetMixin"
+    "HandledScreenAccessor",
+    "MixinMinecraftClient",
+    "MixinRecipeBookWidget",
+    "MixinScreen",
+    "TexturedButtonWidgetAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -9,11 +9,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Screen.class)
-public class ScreenMixin {
+public class MixinScreen {
 
     @Inject(method = "addButton", at = @At("HEAD"), cancellable = true)
     public void onAddButton(AbstractButtonWidget widget, CallbackInfoReturnable<AbstractButtonWidget> info) {
-
         if (!info.isCancelled() && NoRecipeBook.isRecipeButton((Screen) (Object) this, widget)) {
             info.setReturnValue(widget);
         }
