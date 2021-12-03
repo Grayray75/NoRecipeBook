@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(TexturedButtonWidget.class)
-public interface TexturedButtonWidgetMixin {
+public interface TexturedButtonWidgetAccessor {
     @Accessor("texture")
     Identifier getTexture();
 }
