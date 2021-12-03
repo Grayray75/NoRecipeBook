@@ -12,13 +12,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftClient.class)
-public abstract class MinecraftClientMixin {
+public abstract class MixinMinecraftClient {
 
     @Inject(method = "openScreen", at = @At("TAIL"))
     public void openScreen(@Nullable Screen screen, CallbackInfo ci) {
         if (screen instanceof RecipeBookProvider && screen instanceof ContainerScreen) {
             RecipeBookWidget widget = ((RecipeBookProvider) screen).getRecipeBookWidget();
-            ContainerScreenMixin handledScreen = ((ContainerScreenMixin) screen);
+            ContainerScreenAccessor handledScreen = ((ContainerScreenAccessor) screen);
             if (widget.isOpen()) {
                 widget.reset(false);
                 widget.toggleOpen();
