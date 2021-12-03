@@ -3,14 +3,12 @@
   "minVersion": "0.8",
   "package": "io.grayray75.fabric.norecipebook.mixin",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [
-  ],
   "client": [
-    "ContainerScreenMixin",
-    "MinecraftClientMixin",
-    "RecipeBookWidgetMixin",
-    "ScreenMixin",
-    "TexturedButtonWidgetMixin"
+    "ContainerScreenAccessor",
+    "MixinMinecraftClient",
+    "MixinRecipeBookWidget",
+    "MixinScreen",
+    "TexturedButtonWidgetAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

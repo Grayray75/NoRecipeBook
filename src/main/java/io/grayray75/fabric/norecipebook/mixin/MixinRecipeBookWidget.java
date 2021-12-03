@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(RecipeBookWidget.class)
-public abstract class RecipeBookWidgetMixin {
+public abstract class MixinRecipeBookWidget {
     @Shadow
     protected CraftingContainer<?> craftingContainer;
     private boolean initialized = false;
