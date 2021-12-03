@@ -22,7 +22,7 @@ public abstract class MixinMinecraftClient {
             if (widget.isOpen()) {
                 widget.reset(false);
                 widget.toggleOpen();
-                handledScreen.setX(widget.findLeftEdge(false, screen.width, handledScreen.getBackgroundWidth()));
+                handledScreen.setX(widget.findLeftEdge(false, screen.field_2561, handledScreen.getBackgroundWidth()));
             }
         }
     }
