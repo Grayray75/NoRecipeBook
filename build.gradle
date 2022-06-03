@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.10-SNAPSHOT'
+    id 'fabric-loom' version '0.12-SNAPSHOT'
     id 'com.matthewprenger.cursegradle' version '1.4.0'
     id "com.modrinth.minotaur" version "1.2.1"
     id 'maven-publish'
@@ -24,9 +24,9 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // This greatly reduces the amount of time needed to start the game, but is generally unsafe in production
-    modRuntimeOnly("supercoder79:databreaker:0.2.8") {
-        transitive = false
-    }
+    //modRuntimeOnly("supercoder79:databreaker:0.2.8") {
+    //    transitive = false
+    //}
 }
 
 processResources {
