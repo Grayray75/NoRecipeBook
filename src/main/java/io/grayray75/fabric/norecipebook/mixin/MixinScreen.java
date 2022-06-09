@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Screen.class)
 public class MixinScreen {
 
-    @Inject(method = "addDrawableChild", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "Lnet/minecraft/client/gui/screen/Screen;addDrawableChild(Lnet/minecraft/client/gui/Element;)Lnet/minecraft/client/gui/Element;", at = @At("HEAD"), cancellable = true)
     protected <T extends Element & Drawable & Selectable> void addDrawableChild(T child, CallbackInfoReturnable<T> info) {
         if (!info.isCancelled() && NoRecipeBook.isRecipeButton((Screen) (Object) this, child)) {
             info.setReturnValue(child);
