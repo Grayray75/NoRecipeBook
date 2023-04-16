@@ -10,7 +10,8 @@
     "MixinMinecraftClient",
     "MixinRecipeBookWidget",
     "MixinScreen",
-    "TexturedButtonWidgetAccessor"
+    "TexturedButtonWidgetAccessor",
+    "ToastManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
