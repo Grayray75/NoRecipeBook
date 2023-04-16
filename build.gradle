@@ -1,8 +1,8 @@
 plugins {
-    id 'fabric-loom' version '0.10-SNAPSHOT'
-    id 'com.matthewprenger.cursegradle' version '1.4.0'
-    id "com.modrinth.minotaur" version "1.2.1"
-    id 'maven-publish'
+    id "fabric-loom" version "1.1-SNAPSHOT"
+    id "com.modrinth.minotaur" version "2.+"
+    id "com.matthewprenger.cursegradle" version "1.4.0"
+    id "maven-publish"
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -13,7 +13,7 @@ version = "${project.mod_version}+${project.minecraft_version}"
 group = project.maven_group
 
 repositories {
-    maven { url = "https://maven.gegy.dev" }
+    maven { url = "https://jitpack.io" }
 }
 
 dependencies {
@@ -23,10 +23,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    // This greatly reduces the amount of time needed to start the game, but is generally unsafe in production
-    modRuntimeOnly("supercoder79:databreaker:0.2.8") {
-        transitive = false
-    }
+    modRuntimeOnly "com.github.astei:lazydfu:0.1.2"
 }
 
 processResources {
@@ -38,10 +35,6 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    // Ensure that the encoding is set to UTF-8, no matter what the system default is
-    // this fixes some edge cases with special characters not displaying correctly
-    // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
-    // If Javadoc is generated, this must be specified in that task too.
     it.options.encoding = "UTF-8"
 
     // Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
@@ -56,7 +49,7 @@ jar {
     from "LICENSE.txt"
 }
 
-// configure the maven publication
+// Configure the maven publication
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -64,8 +57,7 @@ publishing {
         }
     }
 
-    // Select the repositories you want to publish to
-    // To publish to maven local, no extra repositories are necessary. Just use the task `publishToMavenLocal`.
+    // To publish to maven local use the task `publishToMavenLocal`.
     repositories {
         // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     }
@@ -77,20 +69,17 @@ def getShortMcVersion() {
     return project.minecraft_version.substring(0, 4)
 }
 
-task publishModrinth(type: com.modrinth.minotaur.TaskModrinthUpload) {
-    onlyIf {
-        ENV.MODRINTH_TOKEN
-    }
-
+modrinth {
     token = ENV.MODRINTH_TOKEN
-    projectId = 'TvL1V8O5'
+
+    projectId = "TvL1V8O5"
     versionNumber = "${project.mod_version}+${getShortMcVersion()}"
     versionName = "[${getShortMcVersion()}] NoRecipeBook v${project.mod_version}"
-    versionType = "RELEASE"
-
+    versionType = "release"
+    
     uploadFile = remapJar
-    addGameVersion("${project.minecraft_version}")
-    addLoader('fabric')
+    gameVersions = ["1.18", "1.18.1", "1.18.2"]
+    loaders = ["fabric"]
 }
 
 curseforge {
