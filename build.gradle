@@ -61,11 +61,11 @@ jar {
     from "LICENSE.txt"
 }
 
-// configure the maven publication
+// Configure the maven publication
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            // add all the jars that should be included when publishing to maven
+            // Add all the jars that should be included when publishing to maven
             artifact(remapJar) {
                 builtBy remapJar
             }
