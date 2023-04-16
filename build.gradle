@@ -1,8 +1,8 @@
 plugins {
-    id 'fabric-loom' version '0.7-SNAPSHOT'
-    id 'com.matthewprenger.cursegradle' version '1.4.0'
-    id "com.modrinth.minotaur" version "1.2.1"
-    id 'maven-publish'
+    id "fabric-loom" version "1.1-SNAPSHOT"
+    id "com.modrinth.minotaur" version "2.+"
+    id "com.matthewprenger.cursegradle" version "1.4.0"
+    id "maven-publish"
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -12,12 +12,18 @@ archivesBaseName = project.archives_base_name
 version = "${project.mod_version}+${project.minecraft_version}"
 group = project.maven_group
 
+repositories {
+    maven { url = "https://jitpack.io" }
+}
+
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    modRuntimeOnly "com.github.astei:lazydfu:0.1.2"
 }
 
 processResources {
@@ -29,22 +35,14 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    // Ensure that the encoding is set to UTF-8, no matter what the system default is
-    // this fixes some edge cases with special characters not displaying correctly
-    // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
-    // If Javadoc is generated, this must be specified in that task too.
     it.options.encoding = "UTF-8"
 
-    // The Minecraft launcher currently installs Java 8 for users, so your mod probably wants to target Java 8 too
-    // JDK 9 introduced a new way of specifying this that will make sure no newer classes or methods are used.
-    // We'll use that if it's available, but otherwise we'll use the older option.
     if (JavaVersion.current().isJava9Compatible()) {
         it.options.release = 8
     }
 }
 
 java {
-    // If you remove this line, sources will not be generated.
     withSourcesJar()
 }
 
@@ -52,22 +50,15 @@ jar {
     from "LICENSE.txt"
 }
 
-// configure the maven publication
+// Configure the maven publication
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            // add all the jars that should be included when publishing to maven
-            artifact(remapJar) {
-                builtBy remapJar
-            }
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
+            from components.java
         }
     }
 
-    // Select the repositories you want to publish to
-    // To publish to maven local, no extra repositories are necessary. Just use the task `publishToMavenLocal`.
+    // To publish to maven local use the task `publishToMavenLocal`.
     repositories {
         // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     }
@@ -79,20 +70,17 @@ def getShortMcVersion() {
     return project.minecraft_version.substring(0, 4)
 }
 
-task publishModrinth(type: com.modrinth.minotaur.TaskModrinthUpload) {
-    onlyIf {
-        ENV.MODRINTH_TOKEN
-    }
-
+modrinth {
     token = ENV.MODRINTH_TOKEN
-    projectId = 'TvL1V8O5'
+
+    projectId = "TvL1V8O5"
     versionNumber = "${project.mod_version}+${getShortMcVersion()}"
     versionName = "[${getShortMcVersion()}] NoRecipeBook v${project.mod_version}"
-    versionType = "RELEASE"
-
+    versionType = "release"
+    
     uploadFile = remapJar
-    addGameVersion("${project.minecraft_version}")
-    addLoader('fabric')
+    gameVersions = ["1.15", "1.15.1", "1.15.2"]
+    loaders = ["fabric"]
 }
 
 curseforge {
