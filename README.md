@@ -14,11 +14,12 @@ You can download this mod from:
 ## Supported versions:
 Minecraft version: | Support:
 ------------------ | --------
+1.20.x | ✔️ Active
 1.19.x | ✔️ Active
 1.18.x | ✔️ Active
 1.17.x | ✔️ Active
 1.16.x | ✔️ Active
 1.15.x | ✔️ Active
 1.14.x | ✔️ Active
-1.13.2 | ✔️ Delayed
-1.12.2 | ✔️ Delayed
+1.13.2 | ❌ Soon™
+1.12.2 | ❌ Soon™
