@@ -62,7 +62,7 @@ def ENV = System.getenv()
 modrinth {
     token = ENV.MODRINTH_TOKEN
 
-    projectId = "DIlqwRFH"
+    projectId = "TvL1V8O5"
     versionNumber = "${project.mod_version}"
     versionName = "[1.13.2] NoRecipeBook v${project.mod_version}"
     versionType = "release"
