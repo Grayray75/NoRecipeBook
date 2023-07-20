@@ -71,7 +71,4 @@ modrinth {
     uploadFile = remapJar
     gameVersions = ["1.12.2"]
     loaders = ["fabric"]
-    dependencies {
-        optional.project "legacy-mod-menu"
-    }
 }
