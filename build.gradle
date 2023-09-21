@@ -1,29 +1,20 @@
 plugins {
-    id "fabric-loom" version "1.1-SNAPSHOT"
+    id "fabric-loom" version "1.3-SNAPSHOT"
+    id "io.github.juuxel.loom-vineflower" version "1.11.0"
     id "com.modrinth.minotaur" version "2.+"
     id "com.matthewprenger.cursegradle" version "1.4.0"
     id "maven-publish"
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
-archivesBaseName = project.archives_base_name
+base.archivesName = project.archives_base_name
 version = "${project.mod_version}+${project.minecraft_version}"
 group = project.maven_group
-
-repositories {
-    maven { url = "https://jitpack.io" }
-}
 
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-    //modRuntimeOnly "com.github.astei:lazydfu:0.1.3"
 }
 
 processResources {
@@ -42,6 +33,9 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    
     withSourcesJar()
 }
 
@@ -49,7 +43,6 @@ jar {
     from "LICENSE.txt"
 }
 
-// Configure the maven publication
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -57,29 +50,25 @@ publishing {
         }
     }
 
-    // To publish to maven local use the task `publishToMavenLocal`.
     repositories {
-        // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+        // mavenLocal()
     }
 }
 
 def ENV = System.getenv()
 
-def getShortMcVersion() {
-    return project.minecraft_version.substring(0, 4)
-}
-
 modrinth {
     token = ENV.MODRINTH_TOKEN
 
     projectId = "TvL1V8O5"
-    versionNumber = "${project.mod_version}+${getShortMcVersion()}"
-    versionName = "[${getShortMcVersion()}] NoRecipeBook v${project.mod_version}"
+    versionNumber = "${project.mod_version}+1.19"
+    versionName = "v${project.mod_version} [1.19.x]"
     versionType = "release"
+    changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/1.19/CHANGELOG.md"
     
     uploadFile = remapJar
     gameVersions = ["1.19", "1.19.1", "1.19.2", "1.19.3", "1.19.4"]
-    loaders = ["fabric"]
+    loaders = ["fabric", "quilt"]
 }
 
 curseforge {
@@ -89,13 +78,20 @@ curseforge {
 
     project {
         id = "491407"
-        changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/commits/"
         releaseType = "release"
-        addGameVersion "${project.minecraft_version}"
+        changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/1.19/CHANGELOG.md"
+
+        addGameVersion "1.19"
+        addGameVersion "1.19.1"
+        addGameVersion "1.19.2"
+        addGameVersion "1.19.3"
+        addGameVersion "1.19.4"
         addGameVersion "Fabric"
+        addGameVersion "Quilt"
+        addGameVersion "Java 17"
 
         mainArtifact(remapJar) {
-            displayName = "[${getShortMcVersion()}] NoRecipeBook v${project.mod_version}"
+            displayName = "v${project.mod_version} [1.19.x]"
         }
 
         afterEvaluate {
@@ -105,5 +101,6 @@ curseforge {
 
     options {
         forgeGradleIntegration = false
+        javaVersionAutoDetect = false
     }
 }
