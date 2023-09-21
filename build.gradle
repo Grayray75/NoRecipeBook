@@ -63,7 +63,7 @@ modrinth {
 
     projectId = "TvL1V8O5"
     versionNumber = "${project.mod_version}+1.16"
-    versionName = "NoRecipeBook v${project.mod_version} [1.16.x]"
+    versionName = "v${project.mod_version} [1.16.x]"
     versionType = "release"
     changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/1.16/CHANGELOG.md"
     
@@ -93,7 +93,7 @@ curseforge {
         addGameVersion "Java 8"
 
         mainArtifact(remapJar) {
-            displayName = "NoRecipeBook v${project.mod_version} [1.16.x]"
+            displayName = "v${project.mod_version} [1.16.x]"
         }
 
         afterEvaluate {
