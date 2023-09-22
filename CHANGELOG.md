@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.0.0
+
+* Update to Minecraft 1.20.2.
+* Small internal mixin changes.
+
 ## v2.4.0
 
 * Updated description and license in `fabric.mod.json`.
