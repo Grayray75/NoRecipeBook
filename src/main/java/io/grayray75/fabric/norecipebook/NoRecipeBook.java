@@ -12,11 +12,11 @@ import net.minecraft.client.gui.widget.TexturedButtonWidget;
 
 @Environment(EnvType.CLIENT)
 public class NoRecipeBook {
-    private static final String RecipeButtonTexturePath = "textures/gui/recipe_button.png";
+    private static final String RECIPE_BUTTON_TEXTURE_PATH = "recipe_book/button";
 
     public static <T extends Element & Drawable & Selectable> boolean isRecipeButton(Screen screen, T button) {
         if (screen instanceof HandledScreen && button instanceof TexturedButtonWidget) {
-            return ((TexturedButtonWidgetAccessor) button).getTexture().getPath().equals(RecipeButtonTexturePath);
+            return ((TexturedButtonWidgetAccessor) button).getTextures().get(true, false).getPath().equals(RECIPE_BUTTON_TEXTURE_PATH);
         }
         return false;
     }

@@ -61,13 +61,13 @@ modrinth {
     token = ENV.MODRINTH_TOKEN
 
     projectId = "TvL1V8O5"
-    versionNumber = "${project.mod_version}+1.20"
-    versionName = "v${project.mod_version} [1.20.x]"
+    versionNumber = "${project.mod_version}+${project.minecraft_version}"
+    versionName = "v${project.mod_version} [${project.minecraft_version}]"
     versionType = "release"
-    changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/1.20/CHANGELOG.md"
+    changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/main/CHANGELOG.md"
     
     uploadFile = remapJar
-    gameVersions = ["1.20", "1.20.1"]
+    gameVersions = ["${project.minecraft_version}"]
     loaders = ["fabric", "quilt"]
 }
 
@@ -79,16 +79,15 @@ curseforge {
     project {
         id = "491407"
         releaseType = "release"
-        changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/1.20/CHANGELOG.md"
+        changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/main/CHANGELOG.md"
 
-        addGameVersion "1.20"
-        addGameVersion "1.20.1"
+        addGameVersion "${project.minecraft_version}"
         addGameVersion "Fabric"
         addGameVersion "Quilt"
         addGameVersion "Java 17"
 
         mainArtifact(remapJar) {
-            displayName = "v${project.mod_version} [1.20.x]"
+            displayName = "v${project.mod_version} [${project.minecraft_version}]"
         }
 
         afterEvaluate {

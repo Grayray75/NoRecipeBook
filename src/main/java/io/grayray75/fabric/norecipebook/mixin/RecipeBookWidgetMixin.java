@@ -10,18 +10,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(RecipeBookWidget.class)
-public abstract class MixinRecipeBookWidget {
+public abstract class RecipeBookWidgetMixin {
     @Shadow
     protected AbstractRecipeScreenHandler<?> craftingScreenHandler;
     private boolean initialized = false;
 
     @Inject(method = "<init>", at = @At("TAIL"))
-    public void init(CallbackInfo ci) {
+    private void init(CallbackInfo ci) {
         this.initialized = true;
     }
 
     @Inject(method = "isOpen", at = @At("HEAD"), cancellable = true)
-    public void isOpen(CallbackInfoReturnable<Boolean> info) {
+    private void isOpen(CallbackInfoReturnable<Boolean> info) {
         if (!initialized || craftingScreenHandler == null) {
             info.setReturnValue(false);
         }

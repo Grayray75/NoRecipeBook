@@ -6,9 +6,9 @@
     "mixins": [],
     "client": [
         "HandledScreenAccessor",
-        "MixinMinecraftClient",
-        "MixinRecipeBookWidget",
-        "MixinScreen",
+        "MinecraftClientMixin",
+        "RecipeBookWidgetMixin",
+        "ScreenMixin",
         "TexturedButtonWidgetAccessor",
         "ToastManagerMixin"
     ],
