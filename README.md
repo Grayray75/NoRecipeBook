@@ -14,16 +14,14 @@ You can download this mod from:
 * [Modrinth](https://modrinth.com/mod/norecipebook-fabric)
 * [CurseForge](https://www.curseforge.com/minecraft/mc-mods/norecipebook-fabric)
 
-## 🎲 Supported versions
+## 🎲 Version support
 
-| Minecraft version | Support                   |
-| ----------------- | ------------------------- |
-| 1.20.x            | :heavy_check_mark: Active |
-| 1.19.x            | :heavy_check_mark: Active |
-| 1.18.x            | :heavy_check_mark: Active |
-| 1.17.x            | :heavy_check_mark: Active |
-| 1.16.x            | :heavy_check_mark: Active |
-| 1.15.x            | :heavy_check_mark: Active |
-| 1.14.x            | :heavy_check_mark: Active |
-| 1.13.2            | :heavy_check_mark: Active |
-| 1.12.2            | :heavy_check_mark: Active |
+| Minecraft version | Latest mod version | Support status            |
+| ----------------- | ------------------ | ------------------------- |
+| 1.20.2            | `3.0`              | :heavy_check_mark: Active |
+| 1.14.0 - 1.20.1   | `2.4`              | :warning: Bug fixes only  |
+| 1.12.2, 1.13.2    | `2.4`              | :warning: Bug fixes only  |
+
+Starting with v3.0 this mod will only be developed for the latest Minecraft version available.
+It's a lot of work to develop, test, release a mod for 26+ different versions of Minecraft and I don't have the time for that anymore.
+Versions 2.x of the mod will still receive bug fixes, for the time being.
