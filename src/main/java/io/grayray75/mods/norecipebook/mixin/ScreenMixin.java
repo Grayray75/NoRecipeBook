@@ -1,6 +1,6 @@
-package io.grayray75.fabric.norecipebook.mixin;
+package io.grayray75.mods.norecipebook.mixin;
 
-import io.grayray75.fabric.norecipebook.NoRecipeBook;
+import io.grayray75.mods.norecipebook.NoRecipeBook;
 import net.minecraft.client.gui.Drawable;
 import net.minecraft.client.gui.Element;
 import net.minecraft.client.gui.Selectable;

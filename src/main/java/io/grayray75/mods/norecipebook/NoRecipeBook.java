@@ -1,6 +1,6 @@
-package io.grayray75.fabric.norecipebook;
+package io.grayray75.mods.norecipebook;
 
-import io.grayray75.fabric.norecipebook.mixin.TexturedButtonWidgetAccessor;
+import io.grayray75.mods.norecipebook.mixin.TexturedButtonWidgetAccessor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.Drawable;

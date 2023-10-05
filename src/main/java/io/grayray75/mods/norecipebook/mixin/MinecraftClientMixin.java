@@ -1,4 +1,4 @@
-package io.grayray75.fabric.norecipebook.mixin;
+package io.grayray75.mods.norecipebook.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
