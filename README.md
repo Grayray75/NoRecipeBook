@@ -1,4 +1,7 @@
 # NoRecipeBook
+[![Modrinth downloads](https://img.shields.io/modrinth/dt/TvL1V8O5?logo=modrinth&label=Modrinth&color=00AF5C)](https://modrinth.com/mod/TvL1V8O5)
+[![CurseForge downloads](https://img.shields.io/curseforge/dt/491407?logo=curseforge&label=CurseForge&color=F16436)](https://www.curseforge.com/minecraft/mc-mods/norecipebook-fabric)
+
 A **Fabric** mod that removes the recipe button from the players inventory.
 
 ## 🖼️ Showcase
