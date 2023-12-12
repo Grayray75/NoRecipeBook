@@ -1,35 +1,35 @@
 # Changelog
 
-## v3.0.1
+## v3.1
 
 * Update to Minecraft 1.20.4.
 
-## v3.0.0
+## v3.0
 
 * Update to Minecraft 1.20.2.
 * Small internal mixin changes.
 
-## v2.4.0
+## v2.4
 
 * Updated description and license in `fabric.mod.json`.
 * Built with latest toolchain.
 
-## v2.3.0
+## v2.3
 
 * Hide recipe hints. ([#2](https://github.com/Grayray75/NoRecipeBook/issues/2))
 
-## v2.2.0
+## v2.2
 
 * Internal code cleanup.
 
-## v2.1.0
+## v2.1
 
 * Close open recipe books. ([#1](https://github.com/Grayray75/NoRecipeBook/issues/1))
 
-## v2.0.0
+## v2.0
 
 * Complete code rewrite.
 
-## v1.0.0
+## v1.0
 
 * Initial release.
