@@ -1,5 +1,5 @@
 plugins {
-    id "fabric-loom" version "1.4-SNAPSHOT"
+    id "fabric-loom" version "1.6-SNAPSHOT"
     id "com.modrinth.minotaur" version "2.+"
     id "com.matthewprenger.cursegradle" version "1.4.0"
     id "maven-publish"
@@ -27,13 +27,13 @@ processResources {
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
 
-    // Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
-    it.options.release = 17
+    // Minecraft 1.20.5 (24w14a) upwards uses Java 21.
+    it.options.release = 21
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
     
     withSourcesJar()
 }
@@ -44,7 +44,8 @@ jar {
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        create("mavenJava", MavenPublication) {
+            artifactId = project.archives_base_name
             from components.java
         }
     }
@@ -66,7 +67,7 @@ modrinth {
     changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/main/CHANGELOG.md"
     
     uploadFile = remapJar
-    gameVersions = ["1.20.3", "1.20.4"]
+    gameVersions = ["1.20.5", "1.20.6"]
     loaders = ["fabric", "quilt"]
 }
 
@@ -80,11 +81,11 @@ curseforge {
         releaseType = "release"
         changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/main/CHANGELOG.md"
 
-        addGameVersion "1.20.3"
-        addGameVersion "1.20.4"
+        addGameVersion "1.20.5"
+        addGameVersion "1.20.6"
         addGameVersion "Fabric"
         addGameVersion "Quilt"
-        addGameVersion "Java 17"
+        addGameVersion "Java 21"
 
         mainArtifact(remapJar) {
             displayName = "v${project.mod_version} [${project.minecraft_version}]"

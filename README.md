@@ -2,7 +2,7 @@
 [![Modrinth downloads](https://img.shields.io/modrinth/dt/TvL1V8O5?logo=modrinth&label=Modrinth&color=00AF5C)](https://modrinth.com/mod/TvL1V8O5)
 [![CurseForge downloads](https://img.shields.io/curseforge/dt/491407?logo=curseforge&label=CurseForge&color=F16436)](https://www.curseforge.com/minecraft/mc-mods/norecipebook-fabric)
 
-A **Fabric** mod that removes the recipe button from the players inventory.
+A Fabric/Quilt mod that removes the recipe button from the players inventory.
 
 ## 🖼️ Showcase
 
@@ -21,10 +21,10 @@ You can download this mod from:
 
 | Minecraft version | Latest mod version | Support status            |
 | ----------------- | ------------------ | ------------------------- |
-| 1.20.2            | `3.0`              | :heavy_check_mark: Active |
-| 1.14.0 - 1.20.1   | `2.4`              | :warning: Bug fixes only  |
+| 1.20.5 - 1.20.6   | `3.2`              | :heavy_check_mark: Active |
+| 1.20.3 - 1.20.4   | `3.1`              | :warning: Bug fixes only  |
+| 1.20.2            | `3.0`              | :warning: Bug fixes only  |
+| 1.14.0 - 1.20.1   | `2.4`              | :x: Obsolete              |
 | 1.12.2, 1.13.2    | `2.4`              | :warning: Bug fixes only  |
 
-Starting with v3.0 this mod will only be developed for the latest Minecraft version available.
-It's a lot of work to develop, test, release a mod for 26+ different versions of Minecraft and I don't have the time for that anymore.
-Versions 2.x of the mod will still receive bug fixes, for the time being.
+Starting with v3.0 this mod will only be developed for the latest Minecraft version available and maybe some older legacy version I still care about.

@@ -20,7 +20,7 @@
         "norecipebook.mixins.json"
     ],
     "depends": {
-        "fabricloader": ">=0.14.0",
-        "minecraft": ["1.20.3", "1.20.4"]
+        "fabricloader": ">=0.15.10",
+        "minecraft": ["1.20.5", "1.20.6"]
     }
 }
