@@ -1,12 +1,16 @@
 # Changelog
 
+## v3.2
+
+* Update to Minecraft v1.20.5/6.
+
 ## v3.1
 
-* Update to Minecraft 1.20.4.
+* Update to Minecraft v1.20.4.
 
 ## v3.0
 
-* Update to Minecraft 1.20.2.
+* Update to Minecraft v1.20.2.
 * Small internal mixin changes.
 
 ## v2.4
