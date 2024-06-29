@@ -4,6 +4,7 @@ import net.minecraft.client.gui.screen.recipebook.RecipeBookWidget;
 import net.minecraft.screen.AbstractRecipeScreenHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -12,7 +13,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(RecipeBookWidget.class)
 public abstract class RecipeBookWidgetMixin {
     @Shadow
-    protected AbstractRecipeScreenHandler<?> craftingScreenHandler;
+    protected AbstractRecipeScreenHandler<?, ?> craftingScreenHandler;
+    @Unique
     private boolean initialized = false;
 
     @Inject(method = "<init>", at = @At("TAIL"))
