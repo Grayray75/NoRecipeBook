@@ -67,7 +67,7 @@ modrinth {
     changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/main/CHANGELOG.md"
     
     uploadFile = remapJar
-    gameVersions = ["1.21"]
+    gameVersions = ["1.21", "1.21.1"]
     loaders = ["fabric", "quilt"]
 }
 
@@ -82,6 +82,7 @@ curseforge {
         changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/main/CHANGELOG.md"
 
         addGameVersion "1.21"
+        addGameVersion "1.21.1"
         addGameVersion "Fabric"
         addGameVersion "Quilt"
         addGameVersion "Java 21"
