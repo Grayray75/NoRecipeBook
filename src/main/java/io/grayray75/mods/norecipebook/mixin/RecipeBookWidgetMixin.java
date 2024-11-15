@@ -2,6 +2,7 @@ package io.grayray75.mods.norecipebook.mixin;
 
 import net.minecraft.client.gui.screen.recipebook.RecipeBookWidget;
 import net.minecraft.screen.AbstractRecipeScreenHandler;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -11,9 +12,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(RecipeBookWidget.class)
-public abstract class RecipeBookWidgetMixin {
+public abstract class RecipeBookWidgetMixin<T extends AbstractRecipeScreenHandler> {
     @Shadow
-    protected AbstractRecipeScreenHandler<?, ?> craftingScreenHandler;
+    @Final
+    protected T craftingScreenHandler;
     @Unique
     private boolean initialized = false;
 
@@ -24,7 +26,7 @@ public abstract class RecipeBookWidgetMixin {
 
     @Inject(method = "isOpen", at = @At("HEAD"), cancellable = true)
     private void isOpen(CallbackInfoReturnable<Boolean> info) {
-        if (!initialized || craftingScreenHandler == null) {
+        if (!initialized || this.craftingScreenHandler == null) {
             info.setReturnValue(false);
         }
     }

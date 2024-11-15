@@ -1,5 +1,5 @@
 plugins {
-    id "fabric-loom" version "1.7-SNAPSHOT"
+    id "fabric-loom" version "1.8-SNAPSHOT"
     id "com.modrinth.minotaur" version "2.+"
     id "com.matthewprenger.cursegradle" version "1.4.0"
     id "maven-publish"
@@ -67,7 +67,7 @@ modrinth {
     changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/main/CHANGELOG.md"
     
     uploadFile = remapJar
-    gameVersions = ["1.21", "1.21.1"]
+    gameVersions = ["1.21.2", "1.21.3"]
     loaders = ["fabric", "quilt"]
 }
 
@@ -81,8 +81,8 @@ curseforge {
         releaseType = "release"
         changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/main/CHANGELOG.md"
 
-        addGameVersion "1.21"
-        addGameVersion "1.21.1"
+        addGameVersion "1.21.2"
+        addGameVersion "1.21.3"
         addGameVersion "Fabric"
         addGameVersion "Quilt"
         addGameVersion "Java 21"
