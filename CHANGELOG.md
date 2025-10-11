@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.11
+
+* Update to Minecraft v1.21.9 & v1.21.10
+
 ## v3.10
 
 * Update to Minecraft v1.21.8
