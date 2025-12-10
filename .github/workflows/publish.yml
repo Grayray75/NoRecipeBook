@@ -15,7 +15,7 @@ jobs:
           distribution: "temurin"
           java-version: "21"
       - name: Build and publish with Gradle
-        run: ./gradlew build modrinth curseforge --stacktrace
+        run: ./gradlew build modrinth --stacktrace
         env:
           CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}

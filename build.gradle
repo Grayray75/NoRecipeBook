@@ -1,7 +1,6 @@
 plugins {
     id "fabric-loom" version "1.14-SNAPSHOT"
     id "com.modrinth.minotaur" version "2.+"
-    id "com.matthewprenger.cursegradle" version "1.4.0"
     id "maven-publish"
 }
 
@@ -69,43 +68,4 @@ modrinth {
     uploadFile = remapJar
     gameVersions = ["1.21.2", "1.21.3", "1.21.4", "1.21.5", "1.21.6", "1.21.7", "1.21.8", "1.21.9", "1.21.10", "1.21.11"]
     loaders = ["fabric", "quilt"]
-}
-
-curseforge {
-    if (ENV.CURSEFORGE_TOKEN) {
-        apiKey = ENV.CURSEFORGE_TOKEN
-    }
-
-    project {
-        id = "491407"
-        releaseType = "release"
-        changelog = "A changelog can be found at https://github.com/Grayray75/NoRecipeBook/blob/main/CHANGELOG.md"
-
-        addGameVersion "1.21.2"
-        addGameVersion "1.21.3"
-        addGameVersion "1.21.4"
-        addGameVersion "1.21.5"
-        addGameVersion "1.21.6"
-        addGameVersion "1.21.7"
-        addGameVersion "1.21.8"
-        addGameVersion "1.21.9"
-        addGameVersion "1.21.10"
-        addGameVersion "1.21.11"
-        addGameVersion "Fabric"
-        addGameVersion "Quilt"
-        addGameVersion "Java 21"
-
-        mainArtifact(remapJar) {
-            displayName = "v${project.mod_version} [${project.minecraft_version}]"
-        }
-
-        afterEvaluate {
-            uploadTask.dependsOn("remapJar")
-        }
-    }
-
-    options {
-        forgeGradleIntegration = false
-        javaVersionAutoDetect = false
-    }
 }
