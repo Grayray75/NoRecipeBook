@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class ToastManagerMixin {
 
     @Inject(method = "addToast", at = @At("HEAD"), cancellable = true)
-    private void add(Toast toast, CallbackInfo ci) {
+    private void cancelToast(Toast toast, CallbackInfo ci) {
         if (toast instanceof RecipeToast) {
             ci.cancel();
         }

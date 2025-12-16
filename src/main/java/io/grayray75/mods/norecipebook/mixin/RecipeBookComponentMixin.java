@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(RecipeBookComponent.class)
-public abstract class RecipeBookWidgetMixin<T extends RecipeBookMenu> {
+public abstract class RecipeBookComponentMixin<T extends RecipeBookMenu> {
     @Shadow
     @Final
     protected T menu;

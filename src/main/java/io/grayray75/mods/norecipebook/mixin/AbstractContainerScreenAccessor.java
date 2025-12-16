@@ -5,10 +5,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(AbstractContainerScreen.class)
-public interface HandledScreenAccessor {
+public interface AbstractContainerScreenAccessor {
     @Accessor("imageWidth")
-    int getBackgroundWidth();
+    int getImageWidth();
 
     @Accessor("leftPos")
-    void setX(int value);
+    void setLeftPos(int value);
 }

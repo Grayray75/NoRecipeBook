@@ -11,17 +11,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Minecraft.class)
-public abstract class MinecraftClientMixin {
+public abstract class MinecraftMixin {
 
     @Inject(method = "setScreen", at = @At("TAIL"))
     private void setScreen(@Nullable Screen screen, CallbackInfo ci) {
         if (screen instanceof AbstractRecipeBookScreen<?> recipeBookScreen) {
-            RecipeBookComponent<?> widget = ((RecipeBookScreenAccessor) recipeBookScreen).getRecipeBook();
-            HandledScreenAccessor handledScreen = ((HandledScreenAccessor) screen);
-            if (widget.isVisible()) {
-                //widget.reset();
-                widget.toggleVisibility();
-                handledScreen.setX(widget.updateScreenPosition(screen.width, handledScreen.getBackgroundWidth()));
+            RecipeBookComponent<?> recipeBook = ((AbstractRecipeBookScreenAccessor) recipeBookScreen).getRecipeBook();
+            AbstractContainerScreenAccessor containerScreen = ((AbstractContainerScreenAccessor) screen);
+
+            if (recipeBook.isVisible()) {
+                recipeBook.toggleVisibility();
+                containerScreen.setLeftPos(recipeBook.updateScreenPosition(screen.width, containerScreen.getImageWidth()));
             }
         }
     }

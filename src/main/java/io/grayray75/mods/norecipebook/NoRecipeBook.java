@@ -1,6 +1,6 @@
 package io.grayray75.mods.norecipebook;
 
-import io.grayray75.mods.norecipebook.mixin.TexturedButtonWidgetAccessor;
+import io.grayray75.mods.norecipebook.mixin.ImageButtonAccessor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.components.ImageButton;
@@ -16,7 +16,7 @@ public class NoRecipeBook {
 
     public static <T extends GuiEventListener & Renderable & NarratableEntry> boolean isRecipeButton(Screen screen, T button) {
         if (screen instanceof AbstractContainerScreen && button instanceof ImageButton) {
-            return ((TexturedButtonWidgetAccessor) button).getTextures().get(true, false).getPath().equals(RECIPE_BUTTON_TEXTURE_PATH);
+            return ((ImageButtonAccessor) button).getSprites().get(true, false).getPath().equals(RECIPE_BUTTON_TEXTURE_PATH);
         }
         return false;
     }
