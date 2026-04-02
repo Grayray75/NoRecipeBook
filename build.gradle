@@ -69,6 +69,7 @@ publishMods {
         projectId = "TvL1V8O5"
 
         minecraftVersions.add("26.1")
+        minecraftVersions.add("26.1.1")
     }
 
     curseforge {
@@ -78,5 +79,6 @@ publishMods {
         clientRequired = true
         javaVersions.add(JavaVersion.VERSION_25)
         minecraftVersions.add("26.1")
+        minecraftVersions.add("26.1.1")
     }
 }

@@ -21,7 +21,7 @@ You can download this mod from:
 
 | Minecraft version | Latest mod version | Support status            |
 | ----------------- | ------------------ | ------------------------- |
-| 26.1              | `4.0`              | :heavy_check_mark: Active |
+| 26.1.x            | `4.1`              | :heavy_check_mark: Active |
 | 1.21.2 - 1.21.11  | `3.12`             | :warning: Bug fixes only  |
 | 1.21.0 - 1.21.1   | `3.4`              | :x: Obsolete              |
 | 1.20.5 - 1.20.6   | `3.2`              | :x: Obsolete              |
