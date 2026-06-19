@@ -8,7 +8,7 @@
         "AbstractContainerScreenAccessor",
         "AbstractRecipeBookScreenAccessor",
         "ImageButtonAccessor",
-        "MinecraftMixin",
+        "GuiMixin",
         "RecipeBookComponentMixin",
         "ScreenMixin",
         "ToastManagerMixin"

@@ -1,6 +1,6 @@
 package io.grayray75.mods.norecipebook.mixin;
 
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractRecipeBookScreen;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
@@ -10,8 +10,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(Minecraft.class)
-public abstract class MinecraftMixin {
+@Mixin(Gui.class)
+public abstract class GuiMixin {
 
     @Inject(method = "setScreen", at = @At("TAIL"))
     private void setScreen(@Nullable Screen screen, CallbackInfo ci) {
