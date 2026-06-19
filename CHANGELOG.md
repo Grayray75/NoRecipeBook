@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.2
+
+* Update to Minecraft v26.2
+
 ## v4.1
 
 * Update to Minecraft v26.1.1
